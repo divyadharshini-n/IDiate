@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'Diate Technologies - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        /* Color Palette */
+        :root {
+            --deep-blue: #0047AB; /* Primary professional blue */
+            --sky-blue: #4d94ff; /* Secondary accent blue */
+            --white: #ffffff;
+            --light-gray: #f4f7f9; /* Background color for sections */
+            --text-color: #333333;
+        }
+
+        /* Global Reset and Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--deep-blue);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--deep-blue);
+            transition: color 0.3s; /* Apply transition to all links */
+        }
+
+        /* 1. Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            color: var(--deep-blue);
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        nav a {
+            margin-left: 25px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--sky-blue);
+        }
+
+        /* Motto Bar */
+        .motto-bar {
+            text-align: center;
+            padding: 8px 0;
+            background-color: var(--deep-blue);
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        /* 2. Main Hero Section */
+        .hero-section {
+            background-color: var(--light-gray);
+            padding: 100px 5%;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--deep-blue);
+            color: var(--white);
+            border-radius: 5px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--sky-blue);
+            transform: translateY(-2px);
+        }
+
+        /* 3. Core Identity Cards */
+        .identity-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 60px 5%;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            flex: 1;
+            max-width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .blue-icon {
+            color: var(--sky-blue);
+            font-size: 2.5rem; 
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .card ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* 4. Founders Spotlight */
+        .founders-spotlight {
+            background-color: var(--light-gray);
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .founders-spotlight h2 {
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        .founders-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .founder-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            max-width: 350px;
+            transition: box-shadow 0.3s;
+        }
+
+        .founder-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-placeholder {
+            width: 120px;
+            height: 120px;
+            /* Placeholder styles are still here, but overwritten by inline style for the images */
+            background-color: #ccddee; 
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid var(--deep-blue);
+        }
+
+        .founder-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .founder-card .title {
+            color: var(--sky-blue);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .founder-card .bio {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .social-links a {
+            font-size: 1.2rem;
+            margin: 0 8px;
+            color: var(--deep-blue);
+        }
+
+        .social-links a:hover {
+            color: var(--sky-blue);
+        }
+
+        /* 5. Current Projects */
+        .projects-section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .projects-section h2 {
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            text-align: left;
+            transition: box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .project-card p {
+            padding: 15px;
+            color: #666;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* 6. Footer - CONTACTS */
+        footer {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 30px 5%;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .footer-contact a {
+            color: var(--white);
+        }
+        
+        .footer-contact i {
+            margin-right: 8px;
+            color: var(--sky-blue);
+        }
+
+        .footer-contact a:hover {
+            color: var(--sky-blue);
+        }
+
+        .footer-social a {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-left: 15px;
+        }
+
+        .footer-social a:hover {
+            color: var(--sky-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .identity-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                max-width: 80%;
+                margin-bottom: 20px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 5%;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 0.9rem;
+                padding: 5px 0;
+                display: inline-block;
+            }
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            .founders-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .footer-social {
+                margin-top: 10px;
+            }
+            .motto-bar {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+    </head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-lightbulb"></i> <h1>I'Diate Technologies</h1>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <div class="motto-bar">
+        Bringing Education through Smart Innovation.
+    </div>
+
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h2>Revolutionizing Education.</h2>
+            <p>We create intelligent, impactful solutions for the education sector through AI, power systems, and startup-based learning models.</p>
+            <a href="#projects" class="cta-button">Explore Our Innovations <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section class="identity-cards">
+        <div class="card">
+            <i class="fas fa-eye fa-3x blue-icon"></i>
+            <h3>Our Vision</h3>
+            <p>To revolutionize education through smart, technology-driven innovation.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-rocket fa-3x blue-icon"></i>
+            <h3>Our Mission</h3>
+            <p>To develop affordable and intelligent learning tools powered by emerging technologies.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-cogs fa-3x blue-icon"></i>
+            <h3>Our Focus</h3>
+            <ul>
+                <li>Smart Education Systems</li>
+                <li>AI & Machine Learning Solutions</li>
+                <li>Startup Development & Innovation Support</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="about" class="founders-spotlight">
+        <h2>Meet Founders</h2>
+        <div class="founders-container">
+            <div class="founder-card">
+                <div class="photo-placeholder" style="background-image: url('founder.jpg.jpg');"></div>
+                <h4>Ilakkiyaa Jaisankar</h4>
+                <p class="title">Founder, Pursuing Electrical and Computer Engineering Undergraduate</p>
+                <p class="bio">Deeply interested in AI agents, startups, and entrepreneurship. Driving the strategic innovation of I’Diate.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/ilakkiyaa-jaisankar-454112320" target="_blank" title="Ilakkiya LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:ilakkiyaaslm@gmail.com" title="Ilakkiya Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="founder-card">
+                <div class="photo-placeholder" style="background-image: url('co-founder.jpg.jpg');"></div>
+                <h4>Divyadharshini Nallathambi</h4>
+                <p class="title">Co-Founder, Pursuing Electrical and Computer Engineering Undergraduate</p>
+                <p class="bio">Focused on development, AI, and startups. Passionate about leveraging tech for social impact.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/divyadharshini-n-627b64313" target="_blank" title="Divya LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:ndivyadharshini176@gmail.com" title="Divya Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <h2>Innovation Pipeline (In-Progress Projects)</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">Smart India Hackathon 2025</div>
+                <p>Innovating a smart laser-based QR code system that permanently marks metal surfaces for secure identification. A blend of hardware precision and digital creativity — our SIH project is shaping the future of traceable technology.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-header">NoolKural</div>
+                <p>NoolKural is an AI-driven phone-based learning platform that provides personalized education through voice and SMS. It enables rural learners to access quality lessons without internet or smartphones.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-header">Startup Idea Validation Engine</div>
+                <p>A proprietary tool to vet and structure new startup concepts.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-brand">I'Diate Technologies</div>
+            <div class="footer-contact">
+                <a href="mailto:idiatetechnologies@gmail.com" title="Email I'Diate Technologies">
+                    <i class="fas fa-envelope"></i> idiatetechnologies@gmail.com
+                </a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/idiate.technologies?igsh=MWljcXM3aHF6YXc1aA==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/Idiate_tech" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
