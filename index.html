@@ -43,7 +43,7 @@
             transition: color 0.3s; /* Apply transition to all links */
         }
 
-        /* 1. Header & Navigation */
+        /* 1. Header & Navigation (Fixed/Sticky) */
         header {
             display: flex;
             justify-content: space-between;
@@ -200,10 +200,13 @@
             font-size: 2rem;
         }
 
+        /* UPDATED CSS: Allows three founders to fit evenly */
         .founders-container {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 30px; 
+            max-width: 1200px; 
+            margin: 0 auto;
         }
 
         .founder-card {
@@ -211,7 +214,9 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            max-width: 350px;
+            /* Set max-width for 3 cards */
+            flex: 1; 
+            max-width: 380px; 
             transition: box-shadow 0.3s;
         }
 
@@ -222,7 +227,6 @@
         .photo-placeholder {
             width: 120px;
             height: 120px;
-            /* Placeholder styles are still here, but overwritten by inline style for the images */
             background-color: #ccddee; 
             background-size: cover;
             background-position: center;
@@ -350,6 +354,11 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .founders-container {
+                gap: 20px;
+            }
+        }
         @media (max-width: 992px) {
             .identity-cards {
                 flex-direction: column;
@@ -361,6 +370,15 @@
             }
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+            /* Stack founders vertically on smaller tablets */
+            .founders-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+            .founder-card {
+                max-width: 80%;
             }
         }
 
@@ -378,11 +396,6 @@
             }
             .hero-content h2 {
                 font-size: 2.5rem;
-            }
-            .founders-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 30px;
             }
             .footer-content {
                 flex-direction: column;
@@ -406,7 +419,7 @@
         </div>
         <nav>
             <a href="#home">Home</a>
-            <a href="#about">About</a>
+            <a href="#about">About Us</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -439,6 +452,7 @@
             <h3>Our Focus</h3>
             <ul>
                 <li>Smart Education Systems</li>
+                <li>Power Systems & Automation</li>
                 <li>AI & Machine Learning Solutions</li>
                 <li>Startup Development & Innovation Support</li>
             </ul>
@@ -446,13 +460,14 @@
     </section>
 
     <section id="about" class="founders-spotlight">
-        <h2>Meet Founders</h2>
+        <h2>Meet Our Founders</h2>
         <div class="founders-container">
+            
             <div class="founder-card">
                 <div class="photo-placeholder" style="background-image: url('founder.jpg.jpg');"></div>
                 <h4>Ilakkiyaa Jaisankar</h4>
                 <p class="title">Founder, Pursuing Electrical and Computer Engineering Undergraduate</p>
-                <p class="bio">Deeply interested in AI agents, startups, and entrepreneurship. Driving the strategic innovation of I’Diate.</p>
+                <p class="bio">Deeply interested in AI agents, Startups,and Entrepreneurship. Driving the strategic innovation of I’Diate.</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/ilakkiyaa-jaisankar-454112320" target="_blank" title="Ilakkiya LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="mailto:ilakkiyaaslm@gmail.com" title="Ilakkiya Email"><i class="fas fa-envelope"></i></a>
@@ -463,12 +478,24 @@
                 <div class="photo-placeholder" style="background-image: url('co-founder.jpg.jpg');"></div>
                 <h4>Divyadharshini Nallathambi</h4>
                 <p class="title">Co-Founder, Pursuing Electrical and Computer Engineering Undergraduate</p>
-                <p class="bio">Focused on development, AI, and startups. Passionate about leveraging tech for social impact.</p>
+                <p class="bio">Focused on development, AI, and Startups. Passionate about leveraging tech for social impact.</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/divyadharshini-n-627b64313" target="_blank" title="Divya LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="mailto:ndivyadharshini176@gmail.com" title="Divya Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
+            
+            <div class="founder-card">
+                <div class="photo-placeholder" style="background-image: url('co-founder2.jpg');"></div>
+                <h4>Guru Basker</h4>
+                <p class="title">Co-Founder, Pursuing Bachelors of Commerce(General)</p>
+                <p class="bio">Deeply curious about Data analytics and financial systems. Focused on learning, building, and applying analytical thinking to create value and innovation.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/gurutb/" target="_blank" title="Guru Basker LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:gurubasker2005@gmail.com" title="Guru Basker Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
         </div>
     </section>
 
